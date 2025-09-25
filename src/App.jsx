@@ -1,13 +1,24 @@
-import './App.css'
+import './index.css'
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Header from "./components/Header";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+
 
 function App() {
+   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">
-        ¡Hola, Tailwind v4 con Vite 🚀!
-      </h1>
-    </div>
-  )
+    <>
+      <Header isLoggedIn={isLoggedIn} />
+      <Routes>
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App
