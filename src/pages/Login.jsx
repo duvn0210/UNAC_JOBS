@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Personas from "../assets/personas_Unacjobs.png";
 
-export default function Login(setIsLoggedIn ) {
+export default function Login({ setIsLoggedIn } ) {
   const [usuario, setUsuario] = useState("");
   const [contrasena, setContrasena] = useState("");
   const navigate = useNavigate();
