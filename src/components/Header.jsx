@@ -11,11 +11,11 @@ export default function Header({ isLoggedIn }) {
     const isLoginPage = location.pathname === "/login";
 
     return (
-        <header className="bg-[#1e3a8a] text-white p-4 shadow-md">
-            <div className="max-w-7xl ml-24 flex items-center justify-between">
+        <header className="bg-[#1e3a8a] text-white lg:p-4 shadow-md">
+            <div className="lg:max-w-7xl lg:ml-24 flex lg:items-center lg:justify-between">
                 {/* Logo + Título */}
-                <div className="flex items-center space-x-4 ">
-                    <button className="w-[90px] flex items-center justify-center"
+                <div className="flex flex-row-reverse lg:flex-row items-center space-x-4">
+                    <button className="lg:w-[90px] w-20 lg:flex lg:items-center lg:justify-center"
                         onClick={() => navigate("/")}
                     >
                         <div class="w-full relative ">
@@ -25,9 +25,9 @@ export default function Header({ isLoggedIn }) {
                             </div>
                         </div>
                     </button>
-                    <div>
-                        <h1 className="text-3xl font-bold pb-2 pt-1">UnacJobs</h1>
-                        <p className="text-md text-gray-200 w-[250px]">
+                    <div className="pr-10 lg:pr-0">
+                        <h1 className="lg:text-3xl text-xl font-bold lg:pb-2 pt-1">UnacJobs</h1>
+                        <p className="lg:text-md text-xs text-gray-200 lg:w-[250px] w-[240px]">
                             Sistema de Contratación y Gestión Documental
                         </p>
                     </div>
@@ -35,7 +35,7 @@ export default function Header({ isLoggedIn }) {
 
                 {/* Botones de acción */}
                 {!isLoginPage && (
-                    <div className="flex items-center space-x-4">
+                    <div className="lg:flex items-center space-x-4 hidden">
                         {!isLoggedIn ? (
                             <>
                                 <button
