@@ -8,7 +8,11 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(API_URL, { email, password });
+      const response = await axios.post(
+  API_URL,
+  { email, password },
+  { headers: { "Content-Type": "application/json" } }
+);
       const data = response.data;
 
       if (data.success) {
@@ -18,7 +22,7 @@ export const loginUser = createAsyncThunk(
           showConfirmButton: false,
           timer: 1500,
         });
-        return data.user; // guarda info del usuario
+        return data.data.user; // guarda info del usuario
       } else {
         Swal.fire({
           icon: "error",
